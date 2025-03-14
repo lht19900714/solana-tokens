@@ -15,3 +15,6 @@ def clean_files(file_count=10):
                 files.sort(key=lambda x: os.path.getctime(os.path.join(CURRENT_FILE_PARENT_DIR, 'result', x)))
                 for file in files[:-file_count]:
                     os.remove(os.path.join(CURRENT_FILE_PARENT_DIR, 'result', file))
+
+if __name__ == '__main__':
+    clean_files()
