@@ -21,3 +21,12 @@ jobs:
       - name: Run clean files
         run: |
           python clean_files.py
+      
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          timestamp = $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          git commit -m "Clean files by github actions at $timestamp"
+          git push
