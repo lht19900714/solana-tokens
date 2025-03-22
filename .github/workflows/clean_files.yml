@@ -27,6 +27,4 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add .
-          timestamp=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          git commit -m "Clean files by github actions at $timestamp"
-          git push
+          git diff --staged --quiet || (timestamp=$(date -u +"%Y-%m-%d %H:%M:%S UTC") && git commit -m "Clean files by github actions at $timestamp" && git push)
